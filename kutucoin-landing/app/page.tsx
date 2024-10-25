@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FloatingHeart } from './components/animations/FloatingHeart'
+// import { FloatingHeart } from './components/animations/FloatingHeart'
 import { Hero } from './components/sections/Hero'
 import { Phases } from './components/sections/Phases'
 import { Tokenomics } from './components/features/Tokenomics'
@@ -13,14 +13,14 @@ import { Footer } from './components/sections/Footer'
 
 const Home = () => {
   const [activePhase, setActivePhase] = useState('infatuation')
-  const [hearts, setHearts] = useState([])
+  // const [hearts, setHearts] = useState([])
 
   useEffect(() => {
-    const heartCount = 10
-    const newHearts = Array.from({ length: heartCount }, (_, i) => ({
-      id: i,
-      delay: i * 0.5
-    }))
+    // const heartCount = 10
+    // const newHearts = Array.from({ length: heartCount }, (_, i) => ({
+    //   id: i,
+    //   delay: i * 0.5
+    // }))
     // setHearts(newHearts)
   }, [])
 

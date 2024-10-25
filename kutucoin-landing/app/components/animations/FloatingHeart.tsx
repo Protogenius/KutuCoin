@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion'
 import { FaHeart } from 'react-icons/fa'
 
-export const FloatingHeart = ({ delay }) => {
+export const FloatingHeart = () => {
     return (
         <motion.div
             className="absolute pointer-events-none"
@@ -16,7 +16,7 @@ export const FloatingHeart = ({ delay }) => {
             }}
             transition={{
                 duration: 4,
-                delay,
+
                 repeat: Infinity,
                 ease: "easeOut"
             }}
