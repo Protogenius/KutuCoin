@@ -27,7 +27,7 @@ export const Testimonials = () => {
         <section className="container mx-auto px-4 py-16 bg-white rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold text-center mb-12">Love Stories with KutuCoin</h2>
             <div className="grid md:grid-cols-2 gap-8">
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial) => (
                     <motion.div
                         key={testimonial.author}
                         className="bg-gradient-to-r from-pink-50 to-purple-50 p-8 rounded-lg relative"
