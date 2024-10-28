@@ -151,7 +151,7 @@ export const Hero: React.FC = () => {
     const { address, isConnected } = useAccount()
     const { connect } = useConnect()
     const { disconnect } = useDisconnect()
-    const { data: balance } = useBalance({
+    const { data: balance, refetch: refetchBalance } = useBalance({
         address,
         token: KUTUCOIN_ADDRESS as `0x${string}`,
         chainId: AIA_CHAIN_ID,
@@ -180,6 +180,13 @@ export const Hero: React.FC = () => {
             }
         }
     }, [isConnected])
+
+    useEffect(() => {
+        if (address) {
+            refetchBalance()
+        }
+    }, [address, refetchBalance])
+
 
     const getButtonText = () => {
         if (isPurchasing) return 'Processing...';
@@ -268,6 +275,9 @@ export const Hero: React.FC = () => {
 
             const tx = await contract.purchaseTokens(amount, { value: estimatedAIA })
             await tx.wait()
+
+            // Refetch the balance
+            await refetchBalance()
 
             toast({
                 title: "Success",
@@ -378,7 +388,6 @@ export const Hero: React.FC = () => {
                             <>
                                 <Button
                                     className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-10 py-5 rounded-full font-semibold shadow-lg text-lg"
-
                                     disabled={true}
                                 >
                                     KUTU Balance: {balance ? parseFloat(balance.formatted).toLocaleString() : '0'}
